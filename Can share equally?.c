@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main()
+{
+    int x,y,total;
+    scanf("%d%d",&x,&y);
+    
+    if(x%2==0 &&(x>0 || y%2==0))
+    {
+        printf("YES");
+    }
+    else 
+    {
+        printf("NO");
+    }
+    
+    
+
+    
+    return 0;
+}
