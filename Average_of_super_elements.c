@@ -1,36 +1,35 @@
 #include<stdio.h>
 int main()
 {
-    int n,a[100],c=0,f=0;
-    float sum=0,avg;
+    int i,j,n,arr[100],c=0,s=0;
+    float avg,f=0;
     scanf("%d",&n);
-    for(int i=0;i<n;i++)
+    for(i=0;i<n;i++)
     {
-        scanf("%d",&a[i]);
+        scanf("%d",&arr[i]);
     }
-    for(int i=0;i<n;i++)
-    { c=0;
-        for(int j=0;j<n;j++)
+    for(i=0;i<n;i++)
+    {
+        c=0;
+        for(j=0;j<n;j++)
         {
-            if(a[i]==a[j])
+            if(arr[i]==arr[j])
             {
                 c++;
             }
         }
-        if(c==a[i])
+        if(c==arr[i])
         {
-            sum=sum+a[i];
-            f++;
-            a[i]=0;
+            s=s+arr[i];
+            arr[i]=0;
+            f=f+1;
         }
     }
-    if(f==0)
+    avg=float(s/f);
+     if(f==0)
     {
         printf("-1");
     }
     else
-    {
-    avg=float(sum)/f;
     printf("%.2f",avg);
-    }
 }
