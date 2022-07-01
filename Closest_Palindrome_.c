@@ -1,52 +1,51 @@
 #include<stdio.h>
+#include<math.h>
+int pal(int n)
+{
+    int d,s=0,temp;
+    temp=n;
+    while(n!=0)
+    {
+        d=n%10;
+        s=s*10+d;
+        n=n/10;
+    }
+    if(s==temp)
+    return 1;
+    else
+    return 0;
+}
 int main()
 {
-    int n,i,j,rev=0,r,temp,next,prev,diff;
+    int i,n,k,j,m;
     scanf("%d",&n);
-    i=n+1;
-    j=n-1;
-    while(i>0)
+    for(i=1;i<n;i++)
     {
-        rev=0;
-        temp=i;
-        while(temp>0)
+        if(pal(i))
         {
-            r=temp%10;
-            rev=(rev*10)+r;
-            temp/=10;
+            k=i;
         }
-        if(i==rev)
-        {
-         next=i;
-         break;
-        }
-        i++;
     }
-    while(j>0)
+    j=n+1;
+    while(1)
     {
-        rev=0;
-        temp=j;
-        while(temp>0)
+        if(pal(j))
         {
-            r=temp%10;
-            rev=(rev*10)+r;
-            temp/=10;
+            m=j;
+            break;
         }
-        if(j==rev)
-        {
-         prev=j;
-         break;
-        }
-        j--;
+        j=j+1;
     }
-    if(next-n==n-prev)
+    if(abs(n-m)>abs(n-k))
     {
-        printf("%d %d",prev,next);
-    }else if(next-n>n-prev)
-    {
-        printf("%d",prev);
-    }else{
-        printf("%d",next);
+        printf("%d",k);
     }
-    return 0;
+    else if(abs(n-k)==abs(n-m))
+    {
+        printf("%d %d",k,m);
+    }
+    else
+    {
+        printf("%d",m);
+    }
 }
